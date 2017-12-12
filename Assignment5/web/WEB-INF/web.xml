@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>Login</display-name>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>main.java.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddEmployeeController</servlet-name>
+        <servlet-class>main.java.controller.AddEmployeeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditEmployeeController</servlet-name>
+        <servlet-class>main.java.controller.EditEmployeeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteEmployeeController</servlet-name>
+        <servlet-class>main.java.controller.DeleteEmployeeController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEmployeeController</servlet-name>
+        <url-pattern>/AddEmployeeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditEmployeeController</servlet-name>
+        <url-pattern>/EditEmployeeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteEmployeeController</servlet-name>
+        <url-pattern>/DeleteEmployeeController</url-pattern>
+    </servlet-mapping>
+
+    
+</web-app>
