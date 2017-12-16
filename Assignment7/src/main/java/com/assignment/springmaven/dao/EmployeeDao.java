@@ -26,12 +26,12 @@ public class EmployeeDao {
 
     public int updateEmployee(Employee employee) {
         String sql="UPDATE employees SET name='"+employee.getName()+"', contact="+employee.getContact()+"," +
-                "email='"+employee.getEmail()+"',blood_group='"+employee.getBloodGroup()+"' where id="+employee.getId()+"";
+                "email='"+employee.getEmail()+"',blood_group='"+employee.getBloodGroup()+"' where id="+employee.getId();
         return template.update(sql);
     }
 
     public  int deleteEmployee(int id) {
-        String sql="DELETE FROM employees where id="+id+"";
+        String sql="DELETE FROM employees where id="+id;
         return template.update(sql);
     }
 

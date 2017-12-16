@@ -46,7 +46,6 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.println("Error while fetching employee..");
             throw ex;
         }
-
     }
 
     public List<Employee> getEmployees() throws Exception{
@@ -56,6 +55,5 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.println("Error while listing employees..");
             throw ex;
         }
-
     }
 }

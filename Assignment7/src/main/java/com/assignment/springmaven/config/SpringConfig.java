@@ -6,9 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -19,6 +17,11 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan(basePackages = "com.assignment.springmaven")
 public class SpringConfig extends WebMvcConfigurerAdapter {
+
+    private final String driverClassName = "com.mysql.jdbc.Driver";
+    private final String url = "jdbc:mysql://localhost:3306/e_portal";
+    private final String userName = "root";
+    private final String password = "root";
 
     @Bean
     public ViewResolver viewResolver() {
@@ -32,17 +35,16 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/e_portal");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("root");
+        driverManagerDataSource.setDriverClassName(driverClassName);
+        driverManagerDataSource.setUrl(url);
+        driverManagerDataSource.setUsername(userName);
+        driverManagerDataSource.setPassword(password);
         return driverManagerDataSource;
     }
 
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-       // jdbcTemplate.setResultsMapCaseInsensitive(true);
         return jdbcTemplate;
     }
 }

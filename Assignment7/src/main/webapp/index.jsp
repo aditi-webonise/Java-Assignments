@@ -11,9 +11,8 @@
         <title>Employee portal</title>
     </head>
     <body>
-
-       <h2><a href="addEmployee">ADD EMPLOYEE</a></h2>
+       <h2><a href="add">ADD EMPLOYEE</a></h2>
        <br><br>
-       <h2><a href="viewEmployees">VIEW EMPLOYEE</a></h2>
+       <h2><a href="view">VIEW EMPLOYEE</a></h2>
     </body>
 </html>

@@ -14,40 +14,40 @@ public class EmployeeController {
     @Autowired
     private EmployeeServiceImpl employeeService;
 
-    @RequestMapping(value = "/addEmployee")
+    @RequestMapping(value = "/add")
     public ModelAndView showForm() {
-        return new ModelAndView("/addEmployee","command",new Employee());
+        return new ModelAndView("/add","command",new Employee());
     }
 
     @RequestMapping(value="/save",method = RequestMethod.POST)
     public ModelAndView save(@ModelAttribute("employee") Employee employee) throws Exception {
         employeeService.save(employee);
-        return new ModelAndView("redirect:/viewEmployees");
+        return new ModelAndView("redirect:/view");
     }
 
-    @RequestMapping(value = "/viewEmployees")
+    @RequestMapping(value = "/view")
     public ModelAndView viewEmployees() throws Exception {
         List<Employee> list=employeeService.getEmployees();
-        ModelAndView modelAndView = new ModelAndView("/viewEmployees");
+        ModelAndView modelAndView = new ModelAndView("/view");
         modelAndView.addObject("list",list);
         return modelAndView;
     }
 
-    @RequestMapping(value="/editEmployee/{id}")
+    @RequestMapping(value="/fetch/{id}")
     public ModelAndView editEmployee(@PathVariable int id) throws Exception {
         Employee employee = employeeService.getEmpById(id);
-        return new ModelAndView("/editEmployee","command",employee);
+        return new ModelAndView("/edit","command",employee);
     }
 
-    @RequestMapping(value="/editSave",method = RequestMethod.POST)
-    public ModelAndView editSave(@ModelAttribute("employee") Employee employee) throws Exception {
+    @RequestMapping(value="/update",method = RequestMethod.POST)
+    public ModelAndView updateEmployee(@ModelAttribute("employee") Employee employee) throws Exception {
         employeeService.update(employee);
-        return new ModelAndView("redirect:/viewEmployees");
+        return new ModelAndView("redirect:/view");
     }
 
-    @RequestMapping(value="/deleteEmployee/{id}")
+    @RequestMapping(value="/delete/{id}")
     public ModelAndView deleteEmployee(@PathVariable int id) throws Exception {
         employeeService.delete(id);
-        return new ModelAndView("redirect:/viewEmployees");
+        return new ModelAndView("redirect:/view");
     }
 }
